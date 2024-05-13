@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chandengineer.com</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        form{
+            width: 25%;
+            padding: 30px;
+            margin: auto;
+             margin-top: 100px;
+             background-color: #A5D7E8;     
+             border-radius: 10px;     
+            border: 1px solid #BFBFBF;
+             box-shadow: 10px 10px 5px #aaaaaa;
+             
+        }
+        body
+        {
+            background-image: url("clg.jpg");
+            background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+        }
+        h1{
+            
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+    </style>
+    <script>
+       function validate()
+       {
+        var name=document.getElementById("textbox");
+        var p=document.getElementById("txtbox1");
+        var age=document.getElementById("txtbox2");
+        var email=document.getElementById("txtbox3");
+        var phone=/^\d{10}$/;
+        var n=/^[a-zA-Z]+$/;
+        // var e=/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+        var e=/^[a-zA-Z0-9+_.-]+@gmail.com$/;
+
+        if(name.value=="" && email.value=="" && age.value=="")
+        {
+            alert(" All field are  Compulsory");
+            return false;
+        }
+        else if(name.value=="")
+        {
+            alert("Name Must be filled Compulsory");
+            name.style.borderBlockColor="red";
+            return false;
+        }
+        else if( !n.test(name.value))
+        {
+            alert("name must be in letters");
+            return false;
+        }
+        else if(p.value.length<10 ||p.value.length>10)
+        {
+            alert("number must be of 10 digits and this field is compulsory");
+            return false;
+        }
+        else if (!phone.test(p.value))
+        {
+            alert("contact number should not contain letters");
+            return false;
+        }
+        else if(age.value=="")
+        {
+            alert("Age Must be filled Compulsory");
+            age.style.borderBlockColor="red";
+            return false;
+        }       
+        else if(email.value==""|| !e.test(email.value))
+        {
+            alert("Email Must be filled Compulsory and end with @gmail.com");
+            email.style.borderBlockColor="red";
+            return false;
+        }       
+         else
+        {
+            alert("booked successfully");
+            return true;
+        }
+    }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validate()" action="home.html">
+        <fieldset>
+            <legend><h1><b>Registration Form</b></h1></legend><br>
+            <input type="text" id="textbox" placeholder="ENTER NAME"><br><br>
+            <input type="tel" id="txtbox1" placeholder="ENTER CONTACT NO."><br><br>
+            <input type="number" id="txtbox2" placeholder="ENTER AGE"><br><br>
+            <label>Gender : </label>
+            <select>
+                <option>Select</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select><br><br>
+           <input type="text" id="txtbox3" placeholder="ENTER EMAIL"><br><br>
+            
+           <button input type="submit" value="submit" class="btn btn-success">SUBMIT</button>
+        </fieldset>
+    </form>
+    
+</body>
+</html>
